@@ -6,7 +6,7 @@
 </template>
 <script>
 import Add from "./add";
-
+import ListRole from "./list";
 export default {
   name: "permissions",
   components: {

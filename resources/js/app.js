@@ -20,7 +20,7 @@ Vue.component("users", require("./components/users/index.vue").default);
 Vue.component("roles", require("./components/roles/index.vue").default);
 Vue.component(
     "permissions",
-    require("./components/permissions/index.vue").default
+    require("./components/permissions/add.vue").default
 );
 Vue.component("home", require("./components/indicatorHome").default);
 Vue.component("categorie", require("./components/categorie/add.vue").default);
