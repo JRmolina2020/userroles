@@ -63,17 +63,15 @@ export default {
   },
   data() {
     return {
+      url: "api/permisions/",
       submitted: true,
-      url: "api/permissions/",
       form: {
         id: null,
         name: null
       }
     };
   },
-  computed: {
-    ...mapState(["urlpermissions"])
-  },
+  computed: {},
   methods: {
     add(id) {
       this.$validator.validate().then(valid => {

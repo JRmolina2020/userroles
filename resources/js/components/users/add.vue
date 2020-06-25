@@ -168,7 +168,7 @@ export default {
   },
   data() {
     return {
-      url: "api/users/",
+      url: "api/users",
       submitted: true,
       form: {
         id: null,
@@ -182,7 +182,7 @@ export default {
   },
 
   computed: {
-    ...mapState(["urlusers", "roles"])
+    ...mapState(["roles"])
   },
   created() {
     this.getlist();
