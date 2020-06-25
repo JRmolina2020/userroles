@@ -2276,7 +2276,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   data: function data() {
     return {
       submitted: true,
-      url: "api/permissions",
+      url: "api/permissions/",
       form: {
         id: null,
         name: null
@@ -2632,7 +2632,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   data: function data() {
     return {
-      url: "api/roles",
+      url: "api/roles/",
       submitted: true,
       rolesitem: [],
       form: {
@@ -3072,7 +3072,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   data: function data() {
     return {
-      url: "api/users",
+      url: "api/users/",
       submitted: true,
       form: {
         id: null,

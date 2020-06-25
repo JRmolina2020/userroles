@@ -86,7 +86,7 @@ export default {
   },
   data() {
     return {
-      url: "api/roles",
+      url: "api/roles/",
       submitted: true,
       rolesitem: [],
       form: {

@@ -64,7 +64,7 @@ export default {
   data() {
     return {
       submitted: true,
-      url: "api/permissions",
+      url: "api/permissions/",
       form: {
         id: null,
         name: null
