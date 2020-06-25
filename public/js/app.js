@@ -2269,7 +2269,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      url: "api/permisions/",
+      url: "api/permissions/",
       submitted: true,
       form: {
         id: null,
