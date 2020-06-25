@@ -168,6 +168,7 @@ export default {
   },
   data() {
     return {
+      url: "api/users",
       submitted: true,
       form: {
         id: null,
@@ -196,7 +197,7 @@ export default {
       this.$validator.validate().then(valid => {
         if (valid) {
           if (id) {
-            let url = `${this.urlusers}${id}`;
+            let url = `${this.url}${id}`;
             axios
               .put(url, this.form)
               .then(response => {
@@ -216,7 +217,7 @@ export default {
               });
           } else {
             axios
-              .post(this.urlusers, this.form)
+              .post(this.url, this.form)
               .then(response => {
                 Swal.fire({
                   position: "center",

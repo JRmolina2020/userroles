@@ -1,22 +1,22 @@
 <template>
-    <div>
-        <Add ref="form_user"></Add>
-        <List-User v-on:show="show"></List-User>
-    </div>
+  <div>
+    <Add ref="form_user"></Add>
+    <List-User v-on:show="show"></List-User>
+  </div>
 </template>
 <script>
-import ListUser from "./list";
 import Add from "./add";
+import ListUser from "./list";
 export default {
-    name: "users",
-    components: {
-        ListUser,
-        Add
-    },
-    methods: {
-        show(row) {
-            this.$refs.form_user.show(row);
-        }
+  name: "users",
+  components: {
+    ListUser,
+    Add
+  },
+  methods: {
+    show(row) {
+      this.$refs.form_user.show(row);
     }
+  }
 };
 </script>

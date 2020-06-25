@@ -5,10 +5,10 @@
   </div>
 </template>
 <script>
-import ListRole from "./list";
 import Add from "./add";
+import ListRole from "./list";
 export default {
-  name: "users",
+  name: "roles",
   components: {
     ListRole,
     Add

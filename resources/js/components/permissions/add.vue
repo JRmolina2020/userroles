@@ -79,7 +79,7 @@ export default {
       this.$validator.validate().then(valid => {
         if (valid) {
           if (id) {
-            let url = `${this.urlpermissions}${id}`;
+            let url = `${this.url}${id}`;
             axios
               .put(url, this.form)
               .then(response => {

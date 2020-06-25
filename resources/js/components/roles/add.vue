@@ -86,6 +86,7 @@ export default {
   },
   data() {
     return {
+      url: "api/roles",
       submitted: true,
       rolesitem: [],
       form: {
@@ -108,7 +109,7 @@ export default {
     async add(id) {
       if (id) {
         try {
-          let response = await axios.put(this.urlroles + id, this.form);
+          let response = await axios.put(this.url + id, this.form);
           Swal.fire({
             position: "center",
             icon: "success",
@@ -124,7 +125,7 @@ export default {
         }
       } else {
         try {
-          let response = await axios.post(this.urlroles, this.form);
+          let response = await axios.post(this.url, this.form);
           Swal.fire({
             position: "center",
             icon: "success",

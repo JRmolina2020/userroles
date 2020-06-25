@@ -2291,7 +2291,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.$validator.validate().then(function (valid) {
         if (valid) {
           if (id) {
-            var url = "".concat(_this.urlpermissions).concat(id);
+            var url = "".concat(_this.url).concat(id);
             axios.put(url, _this.form).then(function (response) {
               _this.$store.dispatch("Permissionsactions");
 
@@ -2353,8 +2353,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _list__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./list */ "./resources/js/components/permissions/list.vue");
-/* harmony import */ var _add__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./add */ "./resources/js/components/permissions/add.vue");
+/* harmony import */ var _add__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./add */ "./resources/js/components/permissions/add.vue");
+/* harmony import */ var _list__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./list */ "./resources/js/components/permissions/list.vue");
 //
 //
 //
@@ -2364,10 +2364,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "users",
+  name: "permissions",
   components: {
-    ListRole: _list__WEBPACK_IMPORTED_MODULE_0__["default"],
-    Add: _add__WEBPACK_IMPORTED_MODULE_1__["default"]
+    ListRole: _list__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Add: _add__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   methods: {
     show: function show(row) {
@@ -2632,6 +2632,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   data: function data() {
     return {
+      url: "api/roles",
       submitted: true,
       rolesitem: [],
       form: {
@@ -2666,7 +2667,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
                 _context.prev = 1;
                 _context.next = 4;
-                return axios.put(_this.urlroles + id, _this.form);
+                return axios.put(_this.url + id, _this.form);
 
               case 4:
                 response = _context.sent;
@@ -2698,7 +2699,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
               case 16:
                 _context.prev = 16;
                 _context.next = 19;
-                return axios.post(_this.urlroles, _this.form);
+                return axios.post(_this.url, _this.form);
 
               case 19:
                 _response = _context.sent;
@@ -2767,8 +2768,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _list__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./list */ "./resources/js/components/roles/list.vue");
-/* harmony import */ var _add__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./add */ "./resources/js/components/roles/add.vue");
+/* harmony import */ var _add__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./add */ "./resources/js/components/roles/add.vue");
+/* harmony import */ var _list__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./list */ "./resources/js/components/roles/list.vue");
 //
 //
 //
@@ -2778,10 +2779,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "users",
+  name: "roles",
   components: {
-    ListRole: _list__WEBPACK_IMPORTED_MODULE_0__["default"],
-    Add: _add__WEBPACK_IMPORTED_MODULE_1__["default"]
+    ListRole: _list__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Add: _add__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   methods: {
     show: function show(row) {
@@ -3071,6 +3072,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   data: function data() {
     return {
+      url: "api/users",
       submitted: true,
       form: {
         id: null,
@@ -3096,7 +3098,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.$validator.validate().then(function (valid) {
         if (valid) {
           if (id) {
-            var url = "".concat(_this.urlusers).concat(id);
+            var url = "".concat(_this.url).concat(id);
             axios.put(url, _this.form).then(function (response) {
               _this.$store.dispatch("Useractions");
 
@@ -3114,7 +3116,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
               console.log(error.response);
             });
           } else {
-            axios.post(_this.urlusers, _this.form).then(function (response) {
+            axios.post(_this.url, _this.form).then(function (response) {
               Swal.fire({
                 position: "center",
                 icon: "success",
@@ -3165,8 +3167,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _list__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./list */ "./resources/js/components/users/list.vue");
-/* harmony import */ var _add__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./add */ "./resources/js/components/users/add.vue");
+/* harmony import */ var _add__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./add */ "./resources/js/components/users/add.vue");
+/* harmony import */ var _list__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./list */ "./resources/js/components/users/list.vue");
 //
 //
 //
@@ -3178,8 +3180,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "users",
   components: {
-    ListUser: _list__WEBPACK_IMPORTED_MODULE_0__["default"],
-    Add: _add__WEBPACK_IMPORTED_MODULE_1__["default"]
+    ListUser: _list__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Add: _add__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   methods: {
     show: function show(row) {
