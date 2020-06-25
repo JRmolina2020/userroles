@@ -23,6 +23,7 @@ Vue.component(
     require("./components/permissions/index.vue").default
 );
 Vue.component("home", require("./components/indicatorHome").default);
+Vue.component("categorie", require("./components/categorie/add.vue").default);
 import LaravelPermissionToVueJS from "laravel-permission-to-vuejs";
 Vue.use(LaravelPermissionToVueJS);
 const app = new Vue({

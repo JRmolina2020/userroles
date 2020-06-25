@@ -24,6 +24,9 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('permisos', function () {
             return view('permissions.index');
         });
+        Route::get('categoria', function () {
+            return view('categories.index');
+        });
     });
 
     Route::prefix('api')->group(function () {
@@ -42,5 +45,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('permissions', 'PermissionController')->except([
             'show', 'create', 'edit'
         ]);
+        //categorie
+        Route::post('categorie', 'CategoryController@store');
     });
 });
