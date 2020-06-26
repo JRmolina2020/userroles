@@ -34,7 +34,6 @@ class UserController extends Controller
             'name' => $request['name'],
             'surname' => $request['surname'],
             'email' => $request['email'],
-            'password' => bcrypt($request['password']),
         ]);
         $user->assignRole($request['rol']);
         return response()->json(['message' => 'El usuario ha sido creado'], 200);
@@ -56,7 +55,6 @@ class UserController extends Controller
             'surname' => request('surname'),
             'email' => request('email'),
         ])->save();
-
         $user->syncRoles($request['rol']);
         return response()->json(['message' => 'El usuario ha sido modificado'], 201);
     }
