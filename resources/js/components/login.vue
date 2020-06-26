@@ -1,68 +1,71 @@
 <template>
-  <div class="container">
-    <div class="login-box">
-      <div class="login-logo">
-        <b>DELTA</b>
-        LTE
-      </div>
-
-      <div class="login-box-body">
-        <p class="login-box-msg">Inicio de sección B</p>
+  <div class="login-box">
+    <div class="login-logo">
+      <a>
+        <b>GAMA</b>SPACE
+      </a>
+    </div>
+    <div class="card">
+      <div class="card-body login-card-body">
+        <p class="login-box-msg">Ingresa las credenciales para iniciar la sección</p>
         <form method="POST" @submit.prevent="login" autocomplete="off">
-          <div class="box-body">
-            <div class="form-group">
-              <label for>Email</label>
-              <input
-                type="email"
-                v-validate="'required|max:40|min:4'"
-                class="form-control input-sm"
-                :class="{
+          <div class="form-group">
+            <input
+              type="email"
+              v-validate="'required|max:40|min:4'"
+              class="form-control input-sm"
+              :class="{
                                     'is-invalid':
                                         submitted && errors.has('email')
                                 }"
-                placeholder="Email"
-                v-model="form.email"
-                onfocus
-                name="email"
-              />
-              <div
-                v-if="submitted && errors.has('email')"
-                class="invalid-feedback"
-              >{{ errors.first("email") }}</div>
-            </div>
-            <div class="form-group">
-              <label for>Contraseña</label>
-              <input
-                type="password"
-                v-validate="'required|max:15|min:4'"
-                class="form-control input-sm"
-                :class="{
+              placeholder="Email"
+              v-model="form.email"
+              onfocus
+              name="email"
+            />
+            <div
+              v-if="submitted && errors.has('email')"
+              class="invalid-feedback"
+            >{{ errors.first("email") }}</div>
+          </div>
+          <div class="form-group">
+            <input
+              type="password"
+              v-model="form.password"
+              name="password"
+              placeholder="Password"
+              v-validate="'required|max:15|min:4'"
+              class="form-control input-sm"
+              :class="{
                                     'is-invalid':
                                         submitted && errors.has('password')
                                 }"
-                placeholder="Password"
-                v-model="form.password"
-                onfocus
-                name="password"
-              />
-              <div
-                v-if="submitted && errors.has('password')"
-                class="invalid-feedback"
-              >{{ errors.first("password") }}</div>
+            />
+            <div
+              v-if="submitted && errors.has('password')"
+              class="invalid-feedback"
+            >{{ errors.first("password") }}</div>
+          </div>
+          <div class="row">
+            <div class="col-4" v-if="!status">
+              <button
+                type="submit"
+                class="btn btn-primary btn-block"
+                :disabled="errors.any()"
+              >Ingresar</button>
             </div>
-            <button
-              v-if="!status"
-              :disabled="errors.any()"
-              type="submit"
-              class="btn bg-purple btn-flat"
-            >Ingresar</button>
+            <div class="col-4" v-else>
+              <i class="fi fi-spinner-rotate-forward fi-spin"></i>
+            </div>
           </div>
         </form>
       </div>
-      <div class="callout callout-info">
-        <h5>DELTA LTD</h5>
-        <p>Gestión de Inventario y Facturación.</p>
-      </div>
+    </div>
+    <div class="alert alert-info alert-dismissible">
+      <h5>
+        <i class="icon fas fa-exclamation-triangle"></i>
+      </h5>
+      <strong>Gama space</strong> , sistema de facturación
     </div>
   </div>
 </template>
@@ -71,7 +74,6 @@ export default {
   $_veeValidate: {
     validator: "new"
   },
-
   name: "login",
   data() {
     return {

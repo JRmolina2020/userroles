@@ -1,5 +1,5 @@
 @extends('layout')
 @section('titlepanel','Indicadores Ecónomicos de la empresa')
 @section('content')
-<home></home>
+<home_app></home_app>
 @endsection

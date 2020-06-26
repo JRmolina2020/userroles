@@ -1,27 +1,72 @@
-<ul class="sidebar-menu" data-widget="tree">
-  <li class="header">{{ Auth::user()->email}}</li>
-  @can('Administrador de seguridad')
-  <li class="treeview">
-    <a href="#">
-      <i class="fa fa-users"></i> <span>Seguridad</span>
-      <span class="pull-right-container">
-        <i class="fa fa-angle-left pull-right"></i>
-      </span>
-    </a>
-   
-    <ul class="treeview-menu">
-      <li><a href="{{ url('usuarios') }}"><i class="fa fa-user"></i>Usuarios</a></li>
-      <li><a href="{{ url('roles') }}"><i class="fa fa-rocket"></i> Roles</a></li>
-      <li><a href="{{ url('permisos') }}"><i class="fa fa-key"></i> Permisos</a></li>
-    </ul>
-  </li>
-  @endcan
-  <li><a href="#" 
-    onclick="event.preventDefault(); 
-    document.getElementById('logout-form').submit();" href="{{ route('logout') }}">
-    <i class="fa fa-circle-o text-red"></i> <span>Salir</span>
-  </a></li>
-  <form id="logout-form" action="{{route('logout')}}" method="POST" style="display:none;">
-    {{ csrf_field() }}
-  </form>
-</ul>
+<nav class="mt-2">
+  <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+    <li class="nav-item has-treeview menu-open">
+      <a href="#" class="nav-link">
+        <i class="nav-icon fas fa-eye"></i>
+        <p>
+        Seguridad
+          <i class="right fas fa-angle-left"></i>
+        </p>
+      </a>
+      <ul class="nav nav-treeview">
+        <li class="nav-item">
+            <a href="{{ url('usuarios') }}" class="nav-link">
+              <i class="nav-icon fas fa-user"></i>
+              <p>
+                Usuarios
+              </p>
+            </a>
+          </li>
+      </ul>
+      <ul class="nav nav-treeview">
+        <li class="nav-item">
+            <a href="{{ url('roles') }}" class="nav-link">
+              <i class="nav-icon fas fa-users"></i>
+              <p>
+                Roles
+              </p>
+            </a>
+          </li>
+      </ul>
+      <ul class="nav nav-treeview">
+        <li class="nav-item">
+            <a href="{{ url('permisos') }}" class="nav-link">
+              <i class="nav-icon fas fa-bolt"></i>
+              <p>
+                Permisos
+              </p>
+            </a>
+          </li>
+      </ul>
+    </li>
+    <li class="nav-item has-treeview">
+      <a href="#" class="nav-link">
+        <i class="nav-icon fas fa-eye"></i>
+        <p>
+        Insumos
+          <i class="right fas fa-angle-left"></i>
+        </p>
+      </a>
+      <ul class="nav nav-treeview">
+        <li class="nav-item">
+            <a href="{{ url('categoria') }}" class="nav-link">
+              <i class="nav-icon fas fa-user"></i>
+              <p>
+                Categoria
+              </p>
+            </a>
+          </li>
+      </ul>
+    </li>
+    <li class="nav-item has-treeview">
+      <a class="nav-link" onclick="event.preventDefault(); 
+        document.getElementById('logout-form').submit();" href="{{ route('logout') }}">
+        <i class="nav-icon fas fa-times"></i>
+        <p>Salir</p>
+      </a>
+    </li>
+    <form id="logout-form" action="{{route('logout')}}" method="POST" style="display:none;">
+      {{ csrf_field() }}
+    </form>
+  </ul>
+</nav>

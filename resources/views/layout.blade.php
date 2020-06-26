@@ -1,57 +1,53 @@
 @include('header')
-<body class="hold-transition skin-red sidebar-mini">
-  <div class="wrapper">
-    <header class="main-header">
-      <a href="https://i.ya-webdesign.com/images/png-avatar-4.png" class="logo">
-        <span data-toggle="push-menu" class="logo-mini"><b>A</b>LT</span>
-        <span  data-toggle="push-menu" class="logo-lg"><b>Admin</b>LTE</span>
-      </a>
-      <nav class="navbar navbar-static-top">
-        {{-- <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </a> --}}
-      </nav>
-    </header>
-    <aside class="main-sidebar">
-      <section class="sidebar">
-        <div class="user-panel">
-          <div class="pull-left image">
-            <img src="https://www.pngkit.com/png/full/115-1150342_user-avatar-icon-iconos-de-mujeres-a-color.png" height="40" width="40" class="img-circle" alt="User Image">
-          </div>
-          <div class="pull-left info">
-            <p>{{ Auth::user()->name}}</p>
-            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-          </div>
-        </div>
-        {{--  NAVIGATION  --}}
-       @include('navegation')
-        {{--  END NAVIGATION  --}}
-      </section>
-    </aside>
-
-    <div class="content-wrapper">
-      <section class="content" id="app">
-        <div class="box box-danger col-lg-8 principal">
-          <div class="box-header with-border">
-            <h3 class="box-title">@yield('titlepanel')</h3>
-          </div>
-          <div class="box-body">
-            @yield('content')
-          </div>
-        </div>
-      </section>
+<body class="hold-transition sidebar-mini">
+  <div  class="wrapper">
+<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+<ul class="navbar-nav">
+  <li class="nav-item">
+    <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+  </li>
+</ul>
+</nav>
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<div class="sidebar">
+  <div class="user-panel  mt-3 pb-3 mb-3 d-flex">
+    <div class="image">
+      <img src="{{asset('/img/user2-160x160.jpg')}}" class="img-circle elevation-0" alt="User Image">
     </div>
-    <footer class="main-footer">
-      <div class="pull-right hidden-xs">
-        <b>Version</b> 2.4.18
-      </div>
-      <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE</a>.</strong> All rights
-      reserved.
-    </footer>
-    </aside>
-    <div class="control-sidebar-bg"></div>
+    <div class="info">
+      <a href="{{ url('/') }}" class="d-block">ewewe</a>
+    </div>
   </div>
-  @include('footer')
+  {{--  navegation  --}}
+  @include('navegation')
+  {{--  end  --}}
+</div>
+</aside>
+<div class="content-wrapper">
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row" id="app">
+      <div class="col-lg-8 col-sm-12 col-xs-12 col-md-12 principal">
+        <div class="card card-outline card-primary">
+          <div class="card-header">
+            <h3 class="card-title">@yield('titlepanel')</h3>
+          </div>
+          <div class="card-body">
+          @yield('content')
+          </div>
+          <div class="card-footer">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+ <footer class="main-footer">
+  <div class="float-right d-none d-sm-inline">
+    AKHALLIA
+  </div>
+  <strong>Copyright &copy; 2020</strong> JRMOLINA All rights reserved.
+</footer>
+</div> 
+@include('footer')

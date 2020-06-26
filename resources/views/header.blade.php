@@ -7,10 +7,10 @@
         <meta name="user" content="{{ Auth::user() }}">
         <title>Laravel</title>
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/AdminLTE.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/alt/font-awesome.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/all.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/alt/icheck-bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/alt/ionicons.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/alt/skin-red.min.css') }}">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fontisto@v3.0.4/css/fontisto/fontisto.min.css"></i>
         <script>
          @auth
