@@ -2350,16 +2350,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _utilities_modal_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utilities/modal.vue */ "./resources/js/components/utilities/modal.vue");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
+/* harmony import */ var _utilities_modal_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utilities/modal.vue */ "./resources/js/components/utilities/modal.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -2446,7 +2438,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   name: "add",
   components: {
-    ModalResource: _utilities_modal_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    ModalResource: _utilities_modal_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   data: function data() {
     return {
@@ -2460,7 +2452,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
     };
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])(["permissions", "status"])),
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])(["permissions"])),
   created: function created() {
     this.getlist();
   },
@@ -2471,84 +2463,46 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     add: function add(id) {
       var _this = this;
 
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var response, _response;
+      this.$validator.validate().then(function (valid) {
+        if (valid) {
+          if (id) {
+            var url = "".concat(_this.url, "/").concat(id);
+            axios.put(url, _this.form).then(function (response) {
+              _this.$store.dispatch("Roleactions");
 
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                if (!id) {
-                  _context.next = 16;
-                  break;
-                }
+              Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "".concat(response.data.message),
+                showConfirmButton: false,
+                timer: 1500
+              });
+              $("#model").modal("hide");
 
-                _context.prev = 1;
-                _context.next = 4;
-                return axios.put("".concat(_this.url, "/ ").concat(id), _this.form);
+              _this.clear();
+            })["catch"](function (error) {
+              console.log(error.response);
+            });
+          } else {
+            axios.post(_this.url, _this.form).then(function (response) {
+              Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "".concat(response.data.message),
+                showConfirmButton: false,
+                timer: 1500
+              });
+              $("#model").modal("hide");
 
-              case 4:
-                response = _context.sent;
-                Swal.fire({
-                  position: "center",
-                  icon: "success",
-                  title: "".concat(response.data.message),
-                  showConfirmButton: false,
-                  timer: 1500
-                });
+              _this.$store.dispatch("Roleactions");
 
-                _this.clear();
-
-                _this.$store.dispatch("Roleactions");
-
-                $("#model").modal("hide");
-                _context.next = 14;
-                break;
-
-              case 11:
-                _context.prev = 11;
-                _context.t0 = _context["catch"](1);
-                console.log(_context.t0.response);
-
-              case 14:
-                _context.next = 29;
-                break;
-
-              case 16:
-                _context.prev = 16;
-                _context.next = 19;
-                return axios.post(_this.url, _this.form);
-
-              case 19:
-                _response = _context.sent;
-                Swal.fire({
-                  position: "center",
-                  icon: "success",
-                  title: "".concat(_response.data.message),
-                  showConfirmButton: false,
-                  timer: 1500
-                });
-
-                _this.clear();
-
-                _this.$store.dispatch("Roleactions");
-
-                $("#model").modal("hide");
-                _context.next = 29;
-                break;
-
-              case 26:
-                _context.prev = 26;
-                _context.t1 = _context["catch"](16);
-                console.log(_context.t1);
-
-              case 29:
-              case "end":
-                return _context.stop();
-            }
+              _this.clear();
+            })["catch"](function (error) {
+              console.log(error.response);
+            });
           }
-        }, _callee, null, [[1, 11], [16, 26]]);
-      }))();
+        }
+      });
     },
     show: function show(row) {
       var _this2 = this;
