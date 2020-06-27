@@ -2096,9 +2096,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2171,11 +2168,13 @@ __webpack_require__.r(__webpack_exports__);
     },
     show: function show(row) {
       this.status = true;
+      this.status = true;
       this.form.name = row.name;
       this.form.id = row.id;
       $("#model").modal("show");
     },
     clear: function clear() {
+      this.status = true;
       this.form.id = null;
       this.form.name = null;
       this.$validator.reset();
@@ -2449,9 +2448,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2534,6 +2530,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this2 = this;
 
       this.status = true;
+      this.status = true;
       this.form.id = row.id;
       this.form.name = row.name;
       row.permissions.forEach(function (element) {
@@ -2547,6 +2544,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       $("#model").modal("hide");
     },
     clear: function clear() {
+      this.status = true;
       this.form.id = null;
       this.form.name = null;
       this.$validator.reset();
@@ -2829,9 +2827,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
 
 
 
@@ -2923,6 +2918,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       $("#model").modal("show");
     },
     clear: function clear() {
+      this.status = true;
       this.form.id = null;
       this.form.name = null;
       this.form.surname = null;
@@ -56232,29 +56228,33 @@ var render = function() {
                     : _vm._e()
                 ]),
                 _vm._v(" "),
-                _vm.status
-                  ? _c(
-                      "button",
+                _c(
+                  "button",
+                  {
+                    directives: [
                       {
-                        class: {
-                          "btn btn-outline-primary ": !this.form.id,
-                          "btn btn-outline-danger ": this.form.id
-                        },
-                        attrs: { hidden: _vm.errors.any(), type: "submit" }
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.status,
+                        expression: "status"
+                      }
+                    ],
+                    class: {
+                      "btn btn-outline-primary ": !this.form.id,
+                      "btn btn-outline-danger ": this.form.id
+                    },
+                    attrs: { hidden: _vm.errors.any(), type: "submit" }
+                  },
+                  [
+                    _c("i", {
+                      class: {
+                        "fi fi-wink": !this.form.id,
+                        "fi fi-like": this.form.id
                       },
-                      [
-                        _c("i", {
-                          class: {
-                            "fi fi-wink": !this.form.id,
-                            "fi fi-like": this.form.id
-                          },
-                          attrs: { "aria-hidden": "true" }
-                        })
-                      ]
-                    )
-                  : _c("div", [
-                      _c("i", { staticClass: "fi fi-spinner fi-spin fi-pulse" })
-                    ])
+                      attrs: { "aria-hidden": "true" }
+                    })
+                  ]
+                )
               ]
             )
           ])
@@ -56630,29 +56630,33 @@ var render = function() {
                     ])
                   : _vm._e(),
                 _vm._v(" "),
-                _vm.status
-                  ? _c(
-                      "button",
+                _c(
+                  "button",
+                  {
+                    directives: [
                       {
-                        class: {
-                          "btn btn-outline-primary ": !this.form.id,
-                          "btn btn-outline-danger ": this.form.id
-                        },
-                        attrs: { hidden: _vm.errors.any(), type: "submit" }
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.status,
+                        expression: "status"
+                      }
+                    ],
+                    class: {
+                      "btn btn-outline-primary ": !this.form.id,
+                      "btn btn-outline-danger ": this.form.id
+                    },
+                    attrs: { hidden: _vm.errors.any(), type: "submit" }
+                  },
+                  [
+                    _c("i", {
+                      class: {
+                        "fi fi-wink": !this.form.id,
+                        "fi fi-like": this.form.id
                       },
-                      [
-                        _c("i", {
-                          class: {
-                            "fi fi-wink": !this.form.id,
-                            "fi fi-like": this.form.id
-                          },
-                          attrs: { "aria-hidden": "true" }
-                        })
-                      ]
-                    )
-                  : _c("div", [
-                      _c("i", { staticClass: "fi fi-spinner fi-spin fi-pulse" })
-                    ])
+                      attrs: { "aria-hidden": "true" }
+                    })
+                  ]
+                )
               ]
             )
           ])
@@ -57113,29 +57117,33 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
-                _vm.status
-                  ? _c(
-                      "button",
+                _c(
+                  "button",
+                  {
+                    directives: [
                       {
-                        class: {
-                          "btn btn-outline-primary ": !this.form.id,
-                          "btn btn-outline-danger ": this.form.id
-                        },
-                        attrs: { hidden: _vm.errors.any(), type: "submit" }
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.status,
+                        expression: "status"
+                      }
+                    ],
+                    class: {
+                      "btn btn-outline-primary ": !this.form.id,
+                      "btn btn-outline-danger ": this.form.id
+                    },
+                    attrs: { hidden: _vm.errors.any(), type: "submit" }
+                  },
+                  [
+                    _c("i", {
+                      class: {
+                        "fi fi-wink": !this.form.id,
+                        "fi fi-like": this.form.id
                       },
-                      [
-                        _c("i", {
-                          class: {
-                            "fi fi-wink": !this.form.id,
-                            "fi fi-like": this.form.id
-                          },
-                          attrs: { "aria-hidden": "true" }
-                        })
-                      ]
-                    )
-                  : _c("div", [
-                      _c("i", { staticClass: "fi fi-spinner fi-spin fi-pulse" })
-                    ])
+                      attrs: { "aria-hidden": "true" }
+                    })
+                  ]
+                )
               ]
             )
           ])

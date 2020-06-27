@@ -109,7 +109,7 @@
           </div>
 
           <button
-            v-if="status"
+            v-show="status"
             :hidden="errors.any()"
             type="submit"
             v-bind:class="{
@@ -125,9 +125,6 @@
               aria-hidden="true"
             ></i>
           </button>
-          <div v-else>
-            <i class="fi fi-spinner fi-spin fi-pulse"></i>
-          </div>
         </form>
       </section>
     </Modal-Resource>
@@ -226,6 +223,7 @@ export default {
       $("#model").modal("show");
     },
     clear() {
+      this.status = true;
       this.form.id = null;
       this.form.name = null;
       this.form.surname = null;
