@@ -2,12 +2,12 @@
   <div>
     <button
       type="button"
-      class="btn bg-purple btn-sm btn-flat"
+      class="btn bg-purple btn-sm"
       @click="clear"
       data-toggle="modal"
       :data-target="'#modelpassword' + row.id"
     >
-      <i class="fa fa-unlock" aria-hidden="true"></i>
+      <i class="fi fi-key"></i>
     </button>
     <div class="modal fade" :id="'modelpassword' + row.id">
       <div class="modal-dialog">

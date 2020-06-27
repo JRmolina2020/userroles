@@ -45,16 +45,16 @@
                   type="button"
                   @click="thestatus(row)"
                   v-bind:class="{
-                                        'btn   btn-flat  btn-sm': true,
-                                        ' btn-success': row.status,
+                                        'btn btn-sm': true,
+                                        'btn-success': row.status,
                                         'btn-danger': row.status == 0
                                     }"
                 >
                   <i
                     :class="
                                             row.status
-                                                ? 'fa fa-check-circle'
-                                                : 'fa fa-power-off'
+                                                ? 'fi fi-toggle-on'
+                                                : 'fi fi-toggle-off'
                                         "
                     aria-hidden="true"
                   ></i>
@@ -70,14 +70,10 @@
                 <i class="fi fi-frowning"></i>
               </td>
               <td v-if="can('Administrador de seguridad')">
-                <button
-                  type="button"
-                  @click="$emit('show', row)"
-                  class="btn bg-warning btn-flat btn-sm"
-                >
+                <button type="button" @click="$emit('show', row)" class="btn bg-warning btn-sm">
                   <i class="fi fi-eye"></i>
                 </button>
-                <button type="button" @click="remove(row)" class="btn btn-danger btn-flat btn-sm">
+                <button type="button" @click="remove(row)" class="btn btn-danger btn-sm">
                   <i class="fi fi-trash"></i>
                 </button>
               </td>
@@ -146,6 +142,7 @@ export default {
             title: `El usuario ${row.name} ${response.data.message}`,
             icon: "success"
           });
+          this.getlist();
         } catch (error) {
           console.log(error);
         }
@@ -157,11 +154,11 @@ export default {
             title: `El usuario ${row.name} ${response.data.message}`,
             icon: "success"
           });
+          this.getlist();
         } catch (error) {
           console.log(error);
         }
       }
-      this.getlist();
     }
   }
 };

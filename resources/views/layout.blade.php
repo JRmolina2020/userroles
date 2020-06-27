@@ -4,7 +4,7 @@
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
 <ul class="navbar-nav">
   <li class="nav-item">
-    <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+    <a class="nav-link" data-widget="pushmenu" href="#"><i class="fi fi-nav-icon-grid-a"></i></a>
   </li>
 </ul>
 </nav>
@@ -45,7 +45,7 @@
 </div>
  <footer class="main-footer">
   <div class="float-right d-none d-sm-inline">
-    AKHALLIA
+    <span class="float-right badge bg-primary">{{ Auth::user()->email}}</span>
   </div>
   <strong>Copyright &copy; 2020</strong> JRMOLINA All rights reserved.
 </footer>

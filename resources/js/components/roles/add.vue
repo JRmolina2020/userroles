@@ -36,18 +36,28 @@
             >{{ errors.first("nombre") }}</div>
           </div>
           <div v-if="form.id" class="row">
-            <div v-for="(item, index) in permissions" :key="index" class="form-group">
-              <div class="col">
-                <div class="has-error">
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox" v-model="form.permissions" :value="item.name" />
-                      {{ item.name }}
-                    </label>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Permiso</th>
+                  <th>
+                    <i class="fi fi-wink"></i>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(item, index) in permissions" :key="index">
+                  <td>{{item.name}}</td>
+                  <td>
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox" v-model="form.permissions" :value="item.name" />
+                      </label>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
           <button
             :hidden="errors.any()"

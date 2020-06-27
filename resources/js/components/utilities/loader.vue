@@ -1,6 +1,9 @@
 <template>
-  <div class="info-box-content">
-    <span class="info-box-number">Cargando componente...</span>
+  <div class="card card-danger">
+    <div class="card-header">
+      <h3 class="card-title">INFO!</h3>
+    </div>
+    <div class="card-body">Cargando componente...</div>
   </div>
 </template>
 <script>

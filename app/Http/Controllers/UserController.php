@@ -60,11 +60,8 @@ class UserController extends Controller
     }
     public function destroy($id)
     {
-        $user = User::findOrFail($id);
-        if (Storage::delete('public/' . $user->image)) {
-            User::destroy($id);
-        }
-
+        $user = User::find($id);
+        $user->delete();
         return response()->json(["message" => "Ha sido eliminado"]);
     }
     public function available($id)

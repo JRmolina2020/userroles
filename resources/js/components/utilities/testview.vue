@@ -2,11 +2,11 @@
   <div>
     <button
       type="button"
-      class="btn bg-default btn-flat btn-sm"
+      class="btn btn-primary btn-sm"
       data-toggle="modal"
       :data-target="'#model' + row.id"
     >
-      <i class="fa fa-user-circle" aria-hidden="true"></i>
+      <i class="fi fi-email"></i>
     </button>
     <div
       class="modal fade"

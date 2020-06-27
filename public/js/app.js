@@ -2430,6 +2430,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3053,10 +3063,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
 
 
 
@@ -3146,6 +3152,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     title: "El usuario ".concat(row.name, " ").concat(response.data.message),
                     icon: "success"
                   });
+
+                  _this2.getlist();
                 } catch (error) {
                   console.log(error);
                 }
@@ -3166,14 +3174,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     title: "El usuario ".concat(row.name, " ").concat(_response.data.message),
                     icon: "success"
                   });
+
+                  _this2.getlist();
                 } catch (error) {
                   console.log(error);
                 }
 
               case 13:
-                _this2.getlist();
-
-              case 14:
               case "end":
                 return _context2.stop();
             }
@@ -3321,6 +3328,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
 //
 //
 //
@@ -56393,16 +56403,23 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _vm.form.id
-                  ? _c(
-                      "div",
-                      { staticClass: "row" },
-                      _vm._l(_vm.permissions, function(item, index) {
-                        return _c(
-                          "div",
-                          { key: index, staticClass: "form-group" },
-                          [
-                            _c("div", { staticClass: "col" }, [
-                              _c("div", { staticClass: "has-error" }, [
+                  ? _c("div", { staticClass: "row" }, [
+                      _c("table", { staticClass: "table table-bordered" }, [
+                        _c("thead", [
+                          _c("tr", [
+                            _c("th", [_vm._v("Permiso")]),
+                            _vm._v(" "),
+                            _c("th", [_c("i", { staticClass: "fi fi-wink" })])
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "tbody",
+                          _vm._l(_vm.permissions, function(item, index) {
+                            return _c("tr", { key: index }, [
+                              _c("td", [_vm._v(_vm._s(item.name))]),
+                              _vm._v(" "),
+                              _c("td", [
                                 _c("div", { staticClass: "checkbox" }, [
                                   _c("label", [
                                     _c("input", {
@@ -56460,21 +56477,16 @@ var render = function() {
                                           }
                                         }
                                       }
-                                    }),
-                                    _vm._v(
-                                      "\n                    " +
-                                        _vm._s(item.name) +
-                                        "\n                  "
-                                    )
+                                    })
                                   ])
                                 ])
                               ])
                             ])
-                          ]
+                          }),
+                          0
                         )
-                      }),
-                      0
-                    )
+                      ])
+                    ])
                   : _vm._e(),
                 _vm._v(" "),
                 _c(
@@ -56579,7 +56591,7 @@ var render = function() {
                       data: _vm.roles,
                       currentPage: _vm.currentPage,
                       filters: _vm.filters,
-                      pageSize: 5
+                      pageSize: 3
                     },
                     on: {
                       "update:currentPage": function($event) {
@@ -57115,8 +57127,8 @@ var render = function() {
                                         "button",
                                         {
                                           class: {
-                                            "btn   btn-flat  btn-sm": true,
-                                            " btn-success": row.status,
+                                            "btn btn-sm": true,
+                                            "btn-success": row.status,
                                             "btn-danger": row.status == 0
                                           },
                                           attrs: { type: "button" },
@@ -57129,8 +57141,8 @@ var render = function() {
                                         [
                                           _c("i", {
                                             class: row.status
-                                              ? "fa fa-check-circle"
-                                              : "fa fa-power-off",
+                                              ? "fi fi-toggle-on"
+                                              : "fi fi-toggle-off",
                                             attrs: { "aria-hidden": "true" }
                                           })
                                         ]
@@ -57159,8 +57171,7 @@ var render = function() {
                                       _c(
                                         "button",
                                         {
-                                          staticClass:
-                                            "btn bg-warning btn-flat btn-sm",
+                                          staticClass: "btn bg-warning btn-sm",
                                           attrs: { type: "button" },
                                           on: {
                                             click: function($event) {
@@ -57174,8 +57185,7 @@ var render = function() {
                                       _c(
                                         "button",
                                         {
-                                          staticClass:
-                                            "btn btn-danger btn-flat btn-sm",
+                                          staticClass: "btn btn-danger btn-sm",
                                           attrs: { type: "button" },
                                           on: {
                                             click: function($event) {
@@ -57277,7 +57287,7 @@ var render = function() {
     _c(
       "button",
       {
-        staticClass: "btn bg-purple btn-sm btn-flat",
+        staticClass: "btn bg-purple btn-sm",
         attrs: {
           type: "button",
           "data-toggle": "modal",
@@ -57285,12 +57295,7 @@ var render = function() {
         },
         on: { click: _vm.clear }
       },
-      [
-        _c("i", {
-          staticClass: "fa fa-unlock",
-          attrs: { "aria-hidden": "true" }
-        })
-      ]
+      [_c("i", { staticClass: "fi fi-key" })]
     ),
     _vm._v(" "),
     _c(
@@ -57429,8 +57434,12 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "info-box-content" }, [
-      _c("span", { staticClass: "info-box-number" }, [
+    return _c("div", { staticClass: "card card-danger" }, [
+      _c("div", { staticClass: "card-header" }, [
+        _c("h3", { staticClass: "card-title" }, [_vm._v("INFO!")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-body" }, [
         _vm._v("Cargando componente...")
       ])
     ])
@@ -57539,7 +57548,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "input-group input-group-sm" }, [
     _c("input", {
       directives: [
         {
@@ -57549,7 +57558,7 @@ var render = function() {
           expression: "filters.data.value"
         }
       ],
-      staticClass: "form-control form-control-sm",
+      staticClass: "form-control",
       attrs: { type: "text", placeholder: _vm.titleinput },
       domProps: { value: _vm.filters.data.value },
       on: {
@@ -57560,10 +57569,23 @@ var render = function() {
           _vm.$set(_vm.filters.data, "value", $event.target.value)
         }
       }
-    })
+    }),
+    _vm._v(" "),
+    _vm._m(0)
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "input-group-append" }, [
+      _c("div", { staticClass: "btn btn-primary" }, [
+        _c("i", { staticClass: "fi fi-search" })
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -57589,19 +57611,14 @@ var render = function() {
     _c(
       "button",
       {
-        staticClass: "btn bg-default btn-flat btn-sm",
+        staticClass: "btn btn-primary btn-sm",
         attrs: {
           type: "button",
           "data-toggle": "modal",
           "data-target": "#model" + _vm.row.id
         }
       },
-      [
-        _c("i", {
-          staticClass: "fa fa-user-circle",
-          attrs: { "aria-hidden": "true" }
-        })
-      ]
+      [_c("i", { staticClass: "fi fi-email" })]
     ),
     _vm._v(" "),
     _c(

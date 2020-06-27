@@ -1,17 +1,24 @@
 <nav class="mt-2">
   <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-    <li class="nav-item has-treeview menu-open">
+    <li class="nav-item">
+      <a href="{{ url('home') }}" class="nav-link">
+        <i class="fi fi-microsoft"></i>
+        <p>Inicio</p>
+      </a>
+    </li>
+    @can('Administrador de seguridad')
+    <li class="nav-item">
       <a href="#" class="nav-link">
-        <i class="nav-icon fas fa-eye"></i>
+        <i class="fi fi-world-o"></i>
         <p>
         Seguridad
-          <i class="right fas fa-angle-left"></i>
+          <i class="right fi fi-more-v-a"></i>
         </p>
       </a>
       <ul class="nav nav-treeview">
         <li class="nav-item">
             <a href="{{ url('usuarios') }}" class="nav-link">
-              <i class="nav-icon fas fa-user"></i>
+              <i class="fi fi-male"></i>
               <p>
                 Usuarios
               </p>
@@ -21,7 +28,7 @@
       <ul class="nav nav-treeview">
         <li class="nav-item">
             <a href="{{ url('roles') }}" class="nav-link">
-              <i class="nav-icon fas fa-users"></i>
+              <i class="fi fi-persons"></i>
               <p>
                 Roles
               </p>
@@ -31,37 +38,19 @@
       <ul class="nav nav-treeview">
         <li class="nav-item">
             <a href="{{ url('permisos') }}" class="nav-link">
-              <i class="nav-icon fas fa-bolt"></i>
+              <i class="fi fi-preview"></i>
               <p>
                 Permisos
               </p>
             </a>
           </li>
       </ul>
-    </li>
-    <li class="nav-item has-treeview">
-      <a href="#" class="nav-link">
-        <i class="nav-icon fas fa-eye"></i>
-        <p>
-        Insumos
-          <i class="right fas fa-angle-left"></i>
-        </p>
-      </a>
-      <ul class="nav nav-treeview">
-        <li class="nav-item">
-            <a href="{{ url('categoria') }}" class="nav-link">
-              <i class="nav-icon fas fa-user"></i>
-              <p>
-                Categoria
-              </p>
-            </a>
-          </li>
-      </ul>
-    </li>
+    </li> 
+    @endcan
     <li class="nav-item has-treeview">
       <a class="nav-link" onclick="event.preventDefault(); 
         document.getElementById('logout-form').submit();" href="{{ route('logout') }}">
-        <i class="nav-icon fas fa-times"></i>
+        <i class="fi fi-frowning"></i>
         <p>Salir</p>
       </a>
     </li>

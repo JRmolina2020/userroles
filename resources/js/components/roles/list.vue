@@ -11,7 +11,7 @@
           :data="roles"
           :currentPage.sync="currentPage"
           :filters="filters"
-          :pageSize="5"
+          :pageSize="3"
           @totalPagesChanged="totalPages = $event"
           class="table table-striped"
         >
