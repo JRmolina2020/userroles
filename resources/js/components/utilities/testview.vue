@@ -19,7 +19,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-body">
-            <i class="fa fa-envelope" aria-hidden="true"></i>
+            <i class="fi fi-email" aria-hidden="true"></i>
             {{ row.email }}
           </div>
         </div>

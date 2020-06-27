@@ -6,6 +6,12 @@
         <p>Inicio</p>
       </a>
     </li>
+    <li class="nav-item">
+      <a href="{{ url('perfil') }}" class="nav-link">
+        <i class="fi fi-male"></i>
+        <p>Perfil</p>
+      </a>
+    </li>
     @can('Administrador de seguridad')
     <li class="nav-item">
       <a href="#" class="nav-link">

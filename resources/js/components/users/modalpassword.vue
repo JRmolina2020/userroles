@@ -89,7 +89,6 @@ export default {
           axios
             .put(url, this.form)
             .then(response => {
-              this.$store.dispatch("Useractions");
               Swal.fire({
                 position: "center",
                 icon: "success",

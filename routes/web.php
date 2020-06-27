@@ -17,6 +17,9 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('usuarios', function () {
             return view('users.index');
         });
+        Route::get('perfil', function () {
+            return view('users.profile');
+        });
 
         Route::get('roles', function () {
             return view('roles.index');

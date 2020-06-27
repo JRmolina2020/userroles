@@ -74,7 +74,7 @@ export default {
               password: this.form.password
             })
             .then(response => {
-              window.location.replace("home");
+              window.location.replace("perfil");
               this.status = true;
             })
             .catch(error => {

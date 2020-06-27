@@ -27,15 +27,13 @@
 <div class="content-header">
   <div class="container-fluid">
     <div class="row" id="app">
-      <div class="col-lg-8 col-sm-12 col-xs-12 col-md-12 principal">
+        @yield('measure')
         <div class="card card-outline card-primary">
           <div class="card-header">
             <h3 class="card-title">@yield('titlepanel')</h3>
           </div>
           <div class="card-body">
           @yield('content')
-          </div>
-          <div class="card-footer">
           </div>
         </div>
       </div>
