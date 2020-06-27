@@ -1,10 +1,8 @@
 <template>
-    <div>
-        <h1>HOLA</h1>
-    </div>
+  <div class="row"></div>
 </template>
 <script>
 export default {
-    name: "indicatorHome"
+  name: "indicatorHome"
 };
 </script>

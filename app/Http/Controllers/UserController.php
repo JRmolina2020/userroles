@@ -88,4 +88,9 @@ class UserController extends Controller
         ])->save();
         return response()->json(['message' => 'El password ha sido cambiado'], 201);
     }
+    public function countuser()
+    {
+        $count = User::all()->count();
+        return view('home', compact('count'));
+    }
 }

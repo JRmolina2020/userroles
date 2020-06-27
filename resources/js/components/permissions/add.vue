@@ -29,7 +29,9 @@
               class="invalid-feedback"
             >{{ errors.first("nombre") }}</div>
           </div>
+
           <button
+            v-if="status"
             :hidden="errors.any()"
             type="submit"
             v-bind:class="{
@@ -45,6 +47,9 @@
               aria-hidden="true"
             ></i>
           </button>
+          <div v-else>
+            <i class="fi fi-spinner fi-spin fi-pulse"></i>
+          </div>
         </form>
       </section>
     </Modal-Resource>
@@ -64,6 +69,7 @@ export default {
   data() {
     return {
       url: "api/permissions",
+      status: true,
       submitted: true,
       form: {
         id: null,
@@ -81,6 +87,7 @@ export default {
             axios
               .put(url, this.form)
               .then(response => {
+                this.status = false;
                 this.$store.dispatch("Permissionsactions");
                 Swal.fire({
                   position: "center",
@@ -99,6 +106,7 @@ export default {
             axios
               .post(this.url, this.form)
               .then(response => {
+                this.status = false;
                 Swal.fire({
                   position: "center",
                   icon: "success",
@@ -118,6 +126,7 @@ export default {
       });
     },
     show(row) {
+      this.status = true;
       this.form.name = row.name;
       this.form.id = row.id;
       $("#model").modal("show");

@@ -1923,8 +1923,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "indicatorHome"
 });
@@ -2096,6 +2094,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2109,6 +2112,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       url: "api/permissions",
+      status: true,
       submitted: true,
       form: {
         id: null,
@@ -2126,6 +2130,8 @@ __webpack_require__.r(__webpack_exports__);
           if (id) {
             var url = "".concat(_this.url, "/").concat(id);
             axios.put(url, _this.form).then(function (response) {
+              _this.status = false;
+
               _this.$store.dispatch("Permissionsactions");
 
               Swal.fire({
@@ -2143,6 +2149,7 @@ __webpack_require__.r(__webpack_exports__);
             });
           } else {
             axios.post(_this.url, _this.form).then(function (response) {
+              _this.status = false;
               Swal.fire({
                 position: "center",
                 icon: "success",
@@ -2163,6 +2170,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     show: function show(row) {
+      this.status = true;
       this.form.name = row.name;
       this.form.id = row.id;
       $("#model").modal("show");
@@ -2440,6 +2448,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2452,6 +2464,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   data: function data() {
     return {
+      status: true,
       url: "api/roles",
       submitted: true,
       rolesitem: [],
@@ -2478,6 +2491,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           if (id) {
             var url = "".concat(_this.url, "/").concat(id);
             axios.put(url, _this.form).then(function (response) {
+              _this.status = false;
+
               _this.$store.dispatch("Roleactions");
 
               Swal.fire({
@@ -2495,6 +2510,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             });
           } else {
             axios.post(_this.url, _this.form).then(function (response) {
+              _this.status = false;
               Swal.fire({
                 position: "center",
                 icon: "success",
@@ -2517,6 +2533,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     show: function show(row) {
       var _this2 = this;
 
+      this.status = true;
       this.form.id = row.id;
       this.form.name = row.name;
       row.permissions.forEach(function (element) {
@@ -2811,6 +2828,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -2825,6 +2846,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   data: function data() {
     return {
+      status: true,
       url: "api/users",
       submitted: true,
       form: {
@@ -2852,6 +2874,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           if (id) {
             var url = "".concat(_this.url, "/").concat(id);
             axios.put(url, _this.form).then(function (response) {
+              _this.status = false;
+
               _this.$store.dispatch("Useractions");
 
               Swal.fire({
@@ -2869,6 +2893,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             });
           } else {
             axios.post(_this.url, _this.form).then(function (response) {
+              _this.status = false;
               Swal.fire({
                 position: "center",
                 icon: "success",
@@ -2889,6 +2914,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       });
     },
     show: function show(row) {
+      this.status = true;
       this.form.id = row.id;
       this.form.name = row.name;
       this.form.surname = row.surname;
@@ -55948,16 +55974,9 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "row" })
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [_c("h1", [_vm._v("HOLA")])])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -56213,25 +56232,29 @@ var render = function() {
                     : _vm._e()
                 ]),
                 _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    class: {
-                      "btn btn-outline-primary ": !this.form.id,
-                      "btn btn-outline-danger ": this.form.id
-                    },
-                    attrs: { hidden: _vm.errors.any(), type: "submit" }
-                  },
-                  [
-                    _c("i", {
-                      class: {
-                        "fi fi-wink": !this.form.id,
-                        "fi fi-like": this.form.id
+                _vm.status
+                  ? _c(
+                      "button",
+                      {
+                        class: {
+                          "btn btn-outline-primary ": !this.form.id,
+                          "btn btn-outline-danger ": this.form.id
+                        },
+                        attrs: { hidden: _vm.errors.any(), type: "submit" }
                       },
-                      attrs: { "aria-hidden": "true" }
-                    })
-                  ]
-                )
+                      [
+                        _c("i", {
+                          class: {
+                            "fi fi-wink": !this.form.id,
+                            "fi fi-like": this.form.id
+                          },
+                          attrs: { "aria-hidden": "true" }
+                        })
+                      ]
+                    )
+                  : _c("div", [
+                      _c("i", { staticClass: "fi fi-spinner fi-spin fi-pulse" })
+                    ])
               ]
             )
           ])
@@ -56607,25 +56630,29 @@ var render = function() {
                     ])
                   : _vm._e(),
                 _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    class: {
-                      "btn btn-outline-primary ": !this.form.id,
-                      "btn btn-outline-danger ": this.form.id
-                    },
-                    attrs: { hidden: _vm.errors.any(), type: "submit" }
-                  },
-                  [
-                    _c("i", {
-                      class: {
-                        "fi fi-wink": !this.form.id,
-                        "fi fi-like": this.form.id
+                _vm.status
+                  ? _c(
+                      "button",
+                      {
+                        class: {
+                          "btn btn-outline-primary ": !this.form.id,
+                          "btn btn-outline-danger ": this.form.id
+                        },
+                        attrs: { hidden: _vm.errors.any(), type: "submit" }
                       },
-                      attrs: { "aria-hidden": "true" }
-                    })
-                  ]
-                )
+                      [
+                        _c("i", {
+                          class: {
+                            "fi fi-wink": !this.form.id,
+                            "fi fi-like": this.form.id
+                          },
+                          attrs: { "aria-hidden": "true" }
+                        })
+                      ]
+                    )
+                  : _c("div", [
+                      _c("i", { staticClass: "fi fi-spinner fi-spin fi-pulse" })
+                    ])
               ]
             )
           ])
@@ -57086,25 +57113,29 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    class: {
-                      "btn btn-outline-primary ": !this.form.id,
-                      "btn btn-outline-danger ": this.form.id
-                    },
-                    attrs: { hidden: _vm.errors.any(), type: "submit" }
-                  },
-                  [
-                    _c("i", {
-                      class: {
-                        "fi fi-wink": !this.form.id,
-                        "fi fi-like": this.form.id
+                _vm.status
+                  ? _c(
+                      "button",
+                      {
+                        class: {
+                          "btn btn-outline-primary ": !this.form.id,
+                          "btn btn-outline-danger ": this.form.id
+                        },
+                        attrs: { hidden: _vm.errors.any(), type: "submit" }
                       },
-                      attrs: { "aria-hidden": "true" }
-                    })
-                  ]
-                )
+                      [
+                        _c("i", {
+                          class: {
+                            "fi fi-wink": !this.form.id,
+                            "fi fi-like": this.form.id
+                          },
+                          attrs: { "aria-hidden": "true" }
+                        })
+                      ]
+                    )
+                  : _c("div", [
+                      _c("i", { staticClass: "fi fi-spinner fi-spin fi-pulse" })
+                    ])
               ]
             )
           ])

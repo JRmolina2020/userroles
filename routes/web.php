@@ -9,9 +9,7 @@ Route::get('/', function () {
 Route::post('login', 'AuthController@login');
 //auth
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('home', function () {
-        return view('home');
-    });
+    Route::get('home', 'UserController@countuser');
 
     Route::group(['middleware' => ['permission:Administrador de seguridad']], function () {
         Route::get('usuarios', function () {
